@@ -1,0 +1,25 @@
+.avg {
+  font-weight: 900;
+  font-size: 2vw;
+}
+
+.nav-color {
+  color: wheat;
+}
+
+.nav-input {
+  margin-left: 15%;
+  margin-top: 0.45%;
+  width: 30vw;
+}
+
+.nav-search {
+  font-size: 1.2vw;
+  font-weight: 700;
+}
+
+.nav-sign {
+  font-size: 1.2vw;
+  font-weight: 700;
+  color: wheat;
+}
