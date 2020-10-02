@@ -1,0 +1,55 @@
+<div class="container">
+  <br>
+  <h4><mark>Avto:</mark> {{name}}
+  <small>{{model}}</small></h4>
+  <div class="alert alert-success">
+    Avto options:
+    <ul>
+      <li>Speed: <strong>{{speed}}</strong></li>
+      <li>Wheel: <strong>{{colors.wheels}}</strong></li>
+      <li>Car: <strong>{{colors.car}}</strong></li>
+      <li>Salon: <strong>{{colors.salon}}</strong></li>
+    </ul>
+  </div>
+
+  <div class="alert-danger">
+    <ul>
+      <li *ngFor="let option of options; let i = index">{{i + 1}} - {{option}}
+      <button class="btn btn-danger btn-sm" (click)="deleteOpt(option)">x</button>
+      </li>
+    </ul>
+  </div>
+  <h2>Choose a car</h2>
+  <button class="btn btn-danger" (click)="carsSelect('bmw')">BMW</button>
+  <button class="btn btn-success" (click)="carsSelect('audi')">Audi</button>
+  <button class="btn btn-warning" (click)="carsSelect('mer')">Mercedes</button>
+
+  <h2>Red obj</h2>
+  <button class="btn btn-success"
+          (click)="showEdit()">Edit</button>
+  <div><br></div>
+  <form *ngIf="isEdit">
+    <div class="form-group">
+
+      <label for="option">Add new possibility</label>
+      <input type="text" placeholder="Car name" class="form-control" [(ngModel)]="name" name="name"><br>
+      <input type="text" placeholder="Car model" class="form-control" [(ngModel)]="model" name="model"><br>
+      <input type="number" placeholder="Car speed" class="form-control" [(ngModel)]="speed" name="speed"><br>
+      <input type="text" placeholder="Car color" class="form-control" [(ngModel)]="colors.car" name="car"><br>
+      <input type="text" placeholder="Salon color" class="form-control" [(ngModel)]="colors.salon" name="salon"><br>
+      <input type="text" placeholder="Wheels color" class="form-control" [(ngModel)]="colors.wheels" name="wheels">
+
+    </div>
+  </form>
+
+  <form (submit)="addOpt(option.value)">
+    <div class="form-group">
+      <label for="option">Add new possibility</label>
+      <input type="text" id="option" placeholder="Write smth" class="form-control" #option>
+      <br>
+      <button type="submit" class="btn btn-success">Add</button>
+    </div>
+  </form>
+
+
+</div>
