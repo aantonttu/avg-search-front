@@ -1,0 +1,9 @@
+button {
+  margin-right: 1vw;
+}
+
+.btn-sm {
+  font-size: 0.8em;
+  padding: 5px;
+  line-height: 6px;
+}
