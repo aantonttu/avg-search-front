@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule} from "@angular/forms";
-import { RouterModule, Routes} from "@angular/router";
+import { FormsModule} from '@angular/forms';
+import { RouterModule, Routes} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 // import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -15,10 +15,10 @@ import { MoviesComponent } from './movies/movies.component';
 import { Movies1Component } from './movies1/movies1.component';
 
 const appRoutes: Routes = [
-  {path: '', component:HomePageComponent},
-  {path: 'movie', component:MoviesComponent},
-  {path: 'about', component:Movies1Component}
-]
+  {path: '', component: HomePageComponent},
+  {path: 'movie', component: MoviesComponent},
+  {path: 'about', component: Movies1Component}
+];
 
 @NgModule({
   declarations: [
