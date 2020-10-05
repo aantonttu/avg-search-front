@@ -33,15 +33,6 @@ export class MoviesComponent implements OnInit {
     };
     this.options = ['ABS', 'AVTOPILOT', 'AVTO PARK'];
     this.test = 'Any type of data';
-    this.getData();
-  }
-
-  // tslint:disable-next-line:typedef
-  getData() {
-    this.http.get(this.url)
-      .subscribe(data => {
-        console.log(data);
-      });
   }
 
   // tslint:disable-next-line:typedef
