@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomePageComponent} from '../home-page/home-page.component';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +11,7 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

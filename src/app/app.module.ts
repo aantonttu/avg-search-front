@@ -16,8 +16,7 @@ import { Movies1Component } from './movies1/movies1.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomePageComponent},
-  {path: 'movie', component: MoviesComponent},
-  {path: 'about', component: Movies1Component}
+  {path: 'movies', component: MoviesComponent}
 ];
 
 @NgModule({

@@ -1,3 +1,11 @@
+.dropdown-menu {
+  background-color: #383a40!important;
+}
+
+.dropdown-item {
+  color: wheat;
+}
+
 .bg-dark {
   background-color: #26272b!important;
 }
@@ -6,7 +14,6 @@
   font-weight: 900;
   font-size: 2vw;
 }
-
 .nav-color {
   color: wheat;
 }
