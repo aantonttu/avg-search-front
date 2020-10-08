@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import {MoviesComponent} from './movies/movies.component';
 import {HomePageComponent} from './home-page/home-page.component';
 
 const routes: Routes = [
-  { path: 'movies', component: HomePageComponent},
-  { path: 'movies1', component: MoviesComponent }
+  { path: 'movies', component: HomePageComponent}
 ];
 
 @NgModule({
