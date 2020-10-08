@@ -4,8 +4,9 @@
       <div class="col-md-4 myCol" *ngFor="let movie of moviesList">
         <div class="item-box-blog filmCard">
           <div class="item-box-blog-image">
-            <div class="item-box-blog-date bg-blue-ui white"> <span class="mon">New</span> </div>
-            <figure> <img alt="" src="{{movie.img}}"> </figure>
+            <div class="item-box-blog-date bg-blue-ui white pr-3 pl-3 pb-0 pt-0">
+              <span class="mon"><img alt="" class="star" src="https://pngimg.com/uploads/star/star_PNG41468.png"><p class="rating"> {{movie.rating}}</p></span> </div>
+            <figure> <img alt="" src="{{movie.imgUrl}}"> </figure>
           </div>
           <div class="item-box-blog-body">
             <div class="item-box-blog-heading">
@@ -22,3 +23,4 @@
     </div>
   </div>
 </div>
+
