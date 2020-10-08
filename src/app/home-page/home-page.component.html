@@ -2,26 +2,44 @@
   <div *ngIf="genre">
     <p class="genre">Selected genre: {{genre}}</p>
   </div>
-    <div class="row">
-      <div class="col-md-3" *ngFor="let movie of moviesList">
-        <div class="item-box-blog filmCard">
-          <div class="item-box-blog-image">
-            <div class="item-box-blog-date bg-blue-ui white pr-3 pl-3 pb-0 pt-0">
-              <span class="mon"><img alt="" class="star" src="https://pngimg.com/uploads/star/star_PNG41468.png"><p class="rating"> {{movie.rating}}</p></span> </div>
-            <figure> <img alt="" src="{{movie.imgUrl}}"> </figure>
+  <div class="row">
+    <div class="col-md-3" *ngFor="let movie of pages[pageNow]">
+      <div class="item-box-blog filmCard">
+        <div class="item-box-blog-image">
+          <div class="item-box-blog-date bg-blue-ui white pr-3 pl-3 pb-0 pt-0">
+            <span class="mon"><img alt="" class="star" src="https://pngimg.com/uploads/star/star_PNG41468.png"><p
+              class="rating"> {{movie.rating}}</p></span></div>
+          <figure><img alt="" src="{{movie.imgUrl}}"></figure>
+        </div>
+        <div class="item-box-blog-body">
+          <div class="item-box-blog-heading">
+            <a href="#" tabindex="0">
+              <h3 class="filmName">{{movie.name}}</h3>
+            </a>
           </div>
-          <div class="item-box-blog-body">
-            <div class="item-box-blog-heading">
-              <a href="#" tabindex="0">
-                <h3 class="filmName">{{movie.name}}</h3>
-              </a>
-            </div>
-            <div class="item-box-blog-text filmDescription">
-              <p>{{movie.description}}</p>
-            </div>
+          <div class="item-box-blog-text filmDescription">
+            <p>{{movie.description}}</p>
           </div>
         </div>
       </div>
+    </div>
   </div>
+
+  <nav>
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" (click)="pageMoving('Previous')">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a>{{pageNow + 1}}</a></li>
+      <li class="page-item">
+        <a class="page-link" (click)="pageMoving('Next')">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>
+
 
