@@ -25,17 +25,17 @@
     </div>
   </div>
 
-  <nav>
+  <nav class="pageSelectorNav">
     <ul class="pagination">
-      <li class="page-item">
-        <a class="page-link" (click)="pageMoving('Previous')">
-          <span aria-hidden="true">&laquo;</span>
+      <li>
+        <a class="pageSelector btn" (click)="pageMoving('Previous')">
+          <span class="pageSelector">&laquo;</span>
         </a>
       </li>
-      <li class="page-item"><a>{{pageNow + 1}}</a></li>
-      <li class="page-item">
-        <a class="page-link" (click)="pageMoving('Next')">
-          <span aria-hidden="true">&raquo;</span>
+      <li><a class="pageSelector">{{pageNow + 1}}</a></li>
+      <li>
+        <a class="pageSelector btn" (click)="pageMoving('Next')">
+          <span class="pageSelector">&raquo;</span>
         </a>
       </li>
     </ul>
