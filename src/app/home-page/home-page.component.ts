@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
+import {count} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home-page',
@@ -11,12 +12,16 @@ import {ActivatedRoute} from '@angular/router';
 export class HomePageComponent implements OnInit {
 
   url = 'api/movies';
-  moviesList1: Movies[];
+  pages: any[];
   moviesList: Movies[];
   moviesDisplayCounter: number;
   genre: string;
+  pageNow: number;
+
 
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) {
+    this.pages = [];
+    this.pageNow = 0;
   }
 
   // tslint:disable-next-line:typedef
@@ -36,22 +41,50 @@ export class HomePageComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.moviesList = data;
+        this.pagesGenerator();
       });
   }
 
   // tslint:disable-next-line:typedef
-  getMoviesByGenre(activatedRoute: ActivatedRoute){
-    activatedRoute.queryParams.subscribe(data =>
-    {
+  getMoviesByGenre(activatedRoute: ActivatedRoute) {
+    activatedRoute.queryParams.subscribe(data => {
       // @ts-ignore
       // tslint:disable-next-line:triple-equals
-      if (data.genre)
-      {
+      if (data.genre) {
         this.genre = data.genre;
 
       }
     });
-    console.log(this.genre);
+  }
+
+  // tslint:disable-next-line:typedef
+  pagesGenerator() {
+    let counterOfMovies = 0;
+    let counter = 0;
+    let lis = [];
+    while (counterOfMovies < this.moviesList.length) {
+      lis = [];
+      counter = 0;
+      while (counter < 8 && counterOfMovies < this.moviesList.length) {
+        lis.push(this.moviesList[counterOfMovies]);
+        counter += 1;
+        counterOfMovies += 1;
+      }
+      this.pages.push(lis);
+    }
+  }
+
+  // tslint:disable-next-line:typedef
+  pageMoving(direction) {
+    if (direction === 'Previous') {
+      if (this.pageNow > 0) {
+        this.pageNow -= 1;
+      }
+    } else {
+      if (this.pageNow < this.pages.length - 1) {
+        this.pageNow += 1;
+      }
+    }
   }
 
 }
