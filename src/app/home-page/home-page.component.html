@@ -1,7 +1,29 @@
 <div class="carousel-inner homepage pt-5 text-center">
-  <div *ngIf="genre">
-    <p class="genre">Selected genre: {{genre}}</p>
+
+  <div class="row">
+    <div class="col-6">
+      <div *ngIf="genre">
+        <p class="genre">Selected genre: {{genre}}</p>
+      </div>
+      <div *ngIf="sorted">
+        <p class="genre">Sorted by: {{sorted}}</p>
+      </div>
+    </div>
+<!--    <div class="col-6">-->
+<!--      <ul class="navbar-nav ml-auto">-->
+<!--        <li class="nav-item dropdown ml-5">-->
+<!--          <a class="nav-link dropdown-toggle btn-outline-secondary btn" data-toggle="dropdown" style="color: wheat; font-size: 1.2vw; font-weight: 700">-->
+<!--            Sort by-->
+<!--          </a>-->
+<!--          <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--            <a class="dropdown-item" href="movies/sorted?by=rating">Rating</a>-->
+<!--            <a class="dropdown-item" href="movies/sorted?by=relevance">Relevance</a>-->
+<!--          </div>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
   </div>
+
   <div class="row">
     <div class="col-md-3" *ngFor="let movie of pages[pageNow]">
       <div class="item-box-blog filmCard">

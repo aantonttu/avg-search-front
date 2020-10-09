@@ -16,6 +16,7 @@ export class HomePageComponent implements OnInit {
   moviesDisplayCounter: number;
   genre: string;
   pageNow: number;
+  sorted: string;
 
 
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) {
@@ -35,6 +36,8 @@ export class HomePageComponent implements OnInit {
     this.moviesList = [];
     if (this.genre) {
       this.url += '/genres?genre=' + this.genre;
+    } else if (this.sorted) {
+      this.url += '/sorted?by=' + this.sorted;
     }
     this.http.get<any>(this.url)
       .subscribe(data => {
@@ -42,6 +45,9 @@ export class HomePageComponent implements OnInit {
         this.moviesList = data;
         this.pagesGenerator();
       });
+    if (this.sorted === 'added') {
+      this.sorted = 'relevance';
+    }
   }
 
   // tslint:disable-next-line:typedef
@@ -51,7 +57,8 @@ export class HomePageComponent implements OnInit {
       // tslint:disable-next-line:triple-equals
       if (data.genre) {
         this.genre = data.genre;
-
+      } else if (data.by) {
+        this.sorted = data.by;
       }
     });
   }
