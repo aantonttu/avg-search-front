@@ -1,1 +1,37 @@
-<p>movie-details works!</p>
+<div style="background-color: #3d3d3d; min-height: 80%">
+  <div class="container">
+    <div class="w-100 row mt-5 mb-5 text-light">
+      <div class="w-25 text-center" style="background-color: #161616">
+        <div class="mt-5 mb-5">
+          <h1>{{ movie.name }}</h1>
+          <hr class="w-75">
+        </div>
+        <div class="mb-5">
+          <img src="{{movie.imgUrl}}" width="95%">
+        </div>
+      </div>
+      <div class="w-75" style="background-color: #161616">
+        <div class="mt-5 mb-5 ml-5 text-center">
+          <h1>About</h1>
+          <hr class="w-75">
+        </div>
+        <div class="ml-5">
+          <div class="mb-4">
+            <p>Description : {{movie.description}}</p>
+          </div>
+          <div class="mb-4">
+            <p>Genre : {{movie.genres}}</p>
+          </div>
+          <div class="mb-4">
+            <p>Rating : {{movie.rating}}<span>☆</span></p>
+          </div>
+          <div class="mb-4">
+            <p>Producer : {{movie.producer}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

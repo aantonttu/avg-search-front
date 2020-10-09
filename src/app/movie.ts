@@ -1,0 +1,9 @@
+export interface Movie {
+  id: number;
+  name: string;
+  description: string;
+  producer: string;
+  rating: number;
+  imgUrl: string;
+  genres: string;
+}
