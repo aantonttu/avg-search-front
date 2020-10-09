@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { FooterComponent } from './footer/footer.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomePageComponent},
@@ -21,7 +22,8 @@ const appRoutes: Routes = [
     AppComponent,
     NavbarComponent,
     HomePageComponent,
-    FooterComponent
+    FooterComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,
