@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
-import {count} from 'rxjs/operators';
+import {Movie} from '../movie';
 
 @Component({
   selector: 'app-home-page',
@@ -13,7 +12,7 @@ export class HomePageComponent implements OnInit {
 
   url = 'api/movies';
   pages: any[];
-  moviesList: Movies[];
+  moviesList: Movie[];
   moviesDisplayCounter: number;
   genre: string;
   pageNow: number;
@@ -86,15 +85,4 @@ export class HomePageComponent implements OnInit {
       }
     }
   }
-
-}
-
-interface Movies {
-  id: number;
-  name: string;
-  description: string;
-  producer: string;
-  rating: number;
-  imgUrl: string;
-  genres: string;
 }
