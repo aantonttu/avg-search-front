@@ -9,6 +9,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  search: string;
 
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) { }
 

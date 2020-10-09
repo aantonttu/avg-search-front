@@ -23,17 +23,17 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="movies/sorted?by=rating">Rating</a>
-          <a class="dropdown-item" href="movies/sorted?by=added">Relevance</a>
+          <a class="dropdown-item" href="movies/sorted?by=relevance">Relevance</a>
         </div>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="nav-input form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="nav-search nav-color btn btn-outline-secondary my-2 my-sm-0" type="submit" routerLink="/movies">Search</button>
+      <input class="nav-input form-control mr-sm-2" type="text" placeholder="Search" [(ngModel)]="search" name="search" aria-label="Search">
+      <a class="nav-search nav-color btn btn-outline-secondary my-2 my-sm-0" href="movies/find?name={{search}}">Search</a>
     </form>
   </div>
 
-  <button type="button" class="nav-sign btn btn-outline-secondary" routerLink="/">Sign in</button>
+<!--  <button type="button" class="nav-sign btn btn-outline-secondary" routerLink="/">Sign in</button>-->
 
 </nav>
 
