@@ -5,5 +5,7 @@ export interface Movie {
   producer: string;
   rating: number;
   imgUrl: string;
-  genres: string;
+  genre: string;
+  year: number;
+  duration: number;
 }
