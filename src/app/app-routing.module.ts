@@ -5,7 +5,8 @@ import {HomePageComponent} from './home-page/home-page.component';
 
 const routes: Routes = [
   { path: 'movies', component: HomePageComponent},
-  { path: 'movies/sorted', component: HomePageComponent}
+  { path: 'movies/sorted', component: HomePageComponent},
+  { path: 'movies/find', component: HomePageComponent}
 
 ];
 
