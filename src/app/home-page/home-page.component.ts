@@ -39,7 +39,11 @@ export class HomePageComponent implements OnInit {
     if (this.genre) {
       this.url += '/genres?genre=' + this.genre;
     } else if (this.sorted) {
-      this.url += '/sorted?by=' + this.sorted;
+      if (this.sorted === 'relevance') {
+        this.url += '/sorted?by=' + 'added';
+      } else {
+        this.url += '/sorted?by=' + this.sorted;
+      }
     } else if (this.find) {
       this.url += '/find?name=' + this.find;
     }
@@ -49,9 +53,6 @@ export class HomePageComponent implements OnInit {
         this.moviesList = data;
         this.pagesGenerator();
       });
-    if (this.sorted === 'added') {
-      this.sorted = 'relevance';
-    }
   }
 
   // tslint:disable-next-line:typedef
