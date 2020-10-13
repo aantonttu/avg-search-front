@@ -16,8 +16,9 @@ export class HomePageComponent implements OnInit {
   moviesDisplayCounter: number;
   genre: string;
   pageNow: number;
-  sorted: string;
   find: string;
+  sorting: string;
+  order: string;
 
 
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) {
@@ -35,20 +36,32 @@ export class HomePageComponent implements OnInit {
   // tslint:disable-next-line:typedef
   getMoviesData() {
     this.moviesList = [];
+    this.url = 'api/movies';
     if (this.genre) {
       this.url += '/genres?genre=' + this.genre;
-    } else if (this.sorted) {
-      if (this.sorted === 'relevance') {
-        this.url += '/sorted?by=' + 'added';
-      } else {
-        this.url += '/sorted?by=' + this.sorted;
+    } else if (this.sorting && this.order) {
+      if (this.sorting === 'name' && this.order === 'asc') {
+        this.url += '/sorted?by=name&order=asc';
+      } else if (this.sorting === 'name' && this.order === 'desc') {
+        this.url += '/sorted?by=name&order=desc';
+      } else if (this.sorting === 'relevance' && this.order === 'asc') {
+        this.url += '/sorted?by=relevance&order=asc';
+      } else if (this.sorting === 'relevance' && this.order === 'desc') {
+        this.url += '/sorted?by=relevance&order=desc';
+      } else if (this.sorting === 'rating' && this.order === 'asc') {
+        this.url += '/sorted?by=rating&order=desc';
+      } else if (this.sorting === 'rating' && this.order === 'desc') {
+        this.url += '/sorted?by=rating&order=asc';
+      } else if (this.sorting === 'year' && this.order === 'asc') {
+        this.url += '/sorted?by=year&order=asc';
+      } else if (this.sorting === 'year' && this.order === 'desc') {
+        this.url += '/sorted?by=year&order=desc';
       }
     } else if (this.find) {
       this.url += '/find?name=' + this.find;
     }
     this.http.get<any>(this.url)
       .subscribe(data => {
-        console.log(data);
         this.moviesList = data;
         this.pagesGenerator();
       });
@@ -61,8 +74,9 @@ export class HomePageComponent implements OnInit {
       // tslint:disable-next-line:triple-equals
       if (data.genre) {
         this.genre = data.genre;
-      } else if (data.by) {
-        this.sorted = data.by;
+      } else if (data.by && data.order) {
+        this.sorting = data.by;
+        this.order = data.order;
       } else if (data.name) {
         this.find = data.name;
       }
