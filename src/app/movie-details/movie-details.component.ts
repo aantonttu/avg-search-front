@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 import {Movie} from '../movie';
+import {Comment} from '../comment';
 
 @Component({
   selector: 'app-movie-details',

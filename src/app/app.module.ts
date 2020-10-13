@@ -13,6 +13,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
+
 const appRoutes: Routes = [
   {path: '', component: HomePageComponent},
 ];

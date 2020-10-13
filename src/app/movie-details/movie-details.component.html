@@ -37,6 +37,18 @@
         </div>
       </div>
     </div>
+    <div class="w-100 mr-9  mt-5 mb-5 text-light">
+      <h1 style="margin-left: 5px">Comments</h1>
+      <hr _ngcontent-lkw-c46="" >
+      <div class="w-50 mt-5 mb-5 comments-p" style="border-radius: 10px; background-color: #161616;" *ngFor="let comment of movie.comments">
+        <div class="ml-1 text-muted">
+          <b>{{comment.userName + ":"}}</b>
+        </div>
+        <div class="ml-2">
+          {{comment.commentText}}
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
