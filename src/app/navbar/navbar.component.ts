@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HomePageComponent} from '../home-page/home-page.component';
 import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 
@@ -10,19 +9,20 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   search: string;
+  genres: any[];
+  url = 'api/movies/allGenres';
 
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getMoviesByGenre(this.activatedRoute);
+    this.getAllGenres();
   }
 
   // tslint:disable-next-line:typedef
-  getMoviesByGenre(activatedRoute: ActivatedRoute) {
-    activatedRoute.queryParams.subscribe(data => {
-      // @ts-ignore
-      // tslint:disable-next-line:triple-equals
-      console.log(data);
-    });
+  getAllGenres(){
+    this.http.get<any>(this.url)
+      .subscribe(data => {
+        this.genres = data;
+      });
   }
 }
