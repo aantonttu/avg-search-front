@@ -8,4 +8,5 @@ export interface Movie {
   genre: string;
   year: number;
   duration: number;
+  comments: any[];
 }
