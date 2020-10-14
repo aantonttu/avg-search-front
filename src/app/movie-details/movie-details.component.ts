@@ -42,7 +42,7 @@ export class MovieDetailsComponent implements OnInit {
   }
   // tslint:disable-next-line:typedef
   onSubmit() {
-    console.log('onSubmit in Item Form Component');
+    console.log('onSubmit');
     console.log(this.username);
     console.log(this.commentText);
     console.log('/comments/' + this.movie.id);
@@ -54,4 +54,12 @@ export class MovieDetailsComponent implements OnInit {
       ).subscribe();
   }
 
+  // tslint:disable-next-line:typedef variable-name
+  onDelete(id) {
+    console.log('onDelete');
+    console.log(this.username);
+    console.log(this.commentText);
+    console.log('/comments/' + id);
+    this.http.delete('api/comments/' + id).subscribe();
+  }
 }
