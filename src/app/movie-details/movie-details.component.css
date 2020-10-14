@@ -213,4 +213,9 @@ figure img{width:300px;}
   border-style: solid;
   border-color: #818a91;
 }
+.comments-h3{
+  font-family: "Times New Roman";
+  /*font-weight: bold;*/
+  font-size: 13px;
+}
 
