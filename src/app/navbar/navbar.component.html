@@ -11,19 +11,7 @@
           Genres
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
-          <a class="dropdown-item" href="movies?genre=thriller">Thriller</a>
-          <a class="dropdown-item" href="movies?genre=comedy">Comedy</a>
-        </div>
-      </li>
-    </ul>
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item dropdown ml-5">
-        <a class="nav-link dropdown-toggle btn-outline-secondary btn" data-toggle="dropdown" style="color: wheat; font-size: 1.2vw; font-weight: 700">
-          Sort by
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="movies/sorted?by=rating">Rating</a>
-          <a class="dropdown-item" href="movies/sorted?by=relevance">Relevance</a>
+          <a class="dropdown-item"  *ngFor="let genre of genres" href="movies?genre={{genre}}">{{genre}}</a>
         </div>
       </li>
     </ul>

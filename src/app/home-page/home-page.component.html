@@ -1,27 +1,29 @@
-<div class="carousel-inner homepage pt-5 text-center">
+<div class="carousel-inner homepage pt-5">
 
-  <div class="row">
-    <div class="col-6">
-      <div *ngIf="genre">
-        <p class="genre">Selected genre: {{genre}}</p>
+
+  <div *ngIf="genre" class="container text-center mb-5">
+    <p class="genre">All movies in {{genre.toLowerCase()}} genre.</p>
+  </div>
+
+  <div class="container text-center text-light mb-5" *ngIf="!this.genre&&!this.find">
+    <form>
+      <div class=" row-col-3">
+        <select class="custom-select w-25 mr-5 text-center" [(ngModel)]="sorting" name="sorting" id="sorting"
+                style="height: 2vw">
+          <option value="name" name="name">Name</option>
+          <option value="relevance" name="relevance">Relevance</option>
+          <option value="rating" name="rating">Rating</option>
+          <option value="year" name="year">Year</option>
+        </select>
+        <select class="custom-select w-25 mr-5 text-center" [(ngModel)]="order" id="order" name="order"
+                style="height: 2vw">
+          <option value="asc" name="asc">Ascending</option>
+          <option value="desc" name="desc">Descending</option>
+        </select>
+        <a type="submit" class="btn btn-dark" style="color: wheat" (click)="getMoviesData()"
+           href="movies/sorted?by={{sorting}}&order={{order}}">Sort</a>
       </div>
-      <div *ngIf="sorted">
-        <p class="genre">Sorted by: {{sorted}}</p>
-      </div>
-    </div>
-<!--    <div class="col-6">-->
-<!--      <ul class="navbar-nav ml-auto">-->
-<!--        <li class="nav-item dropdown ml-5">-->
-<!--          <a class="nav-link dropdown-toggle btn-outline-secondary btn" data-toggle="dropdown" style="color: wheat; font-size: 1.2vw; font-weight: 700">-->
-<!--            Sort by-->
-<!--          </a>-->
-<!--          <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-<!--            <a class="dropdown-item" href="movies/sorted?by=rating">Rating</a>-->
-<!--            <a class="dropdown-item" href="movies/sorted?by=relevance">Relevance</a>-->
-<!--          </div>-->
-<!--        </li>-->
-<!--      </ul>-->
-<!--    </div>-->
+    </form>
   </div>
 
   <div class="row">
@@ -47,7 +49,7 @@
     </div>
   </div>
 
-  <nav class="pageSelectorNav">
+  <nav class="pageSelectorNav text-center">
     <ul class="pagination">
       <li>
         <a class="pageSelector btn" (click)="pageMoving('Previous')">
