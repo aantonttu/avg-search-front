@@ -38,7 +38,7 @@ export class HomePageComponent implements OnInit {
     this.moviesList = [];
     this.url = 'api/movies';
     if (this.genre) {
-      this.url += '/genres?genre=' + this.genre;
+      this.url += '/sorted?genre=' + this.genre;
     } else if (this.sorting && this.order) {
       if (this.sorting === 'name' && this.order === 'asc') {
         this.url += '/sorted?by=name&order=asc';

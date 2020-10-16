@@ -14,7 +14,6 @@ export class MovieDetailsComponent implements OnInit {
 
   url = 'api/movies';
   movie: Movie;
-  // tslint:disable-next-line:new-parens
   comment: Comment;
   username: string;
   commentText: string;
@@ -30,16 +29,14 @@ export class MovieDetailsComponent implements OnInit {
   // tslint:disable-next-line:typedef
   getMovie(activatedRoute: ActivatedRoute) {
     activatedRoute.queryParams.subscribe(data => {
-      // @ts-ignore
-      // tslint:disable-next-line:triple-equals
       this.url += '/' + data.id;
       this.http.get<any>(this.url)
         .subscribe(dataMovie => {
-          console.log(dataMovie);
           this.movie = dataMovie;
         });
     });
   }
+
   // tslint:disable-next-line:typedef
   onSubmit() {
     console.log('onSubmit');
@@ -51,15 +48,11 @@ export class MovieDetailsComponent implements OnInit {
         commentText: this.commentText,
         userName: this.username
       }
-      ).subscribe();
+    ).subscribe();
   }
 
   // tslint:disable-next-line:typedef variable-name
   onDelete(id) {
-    console.log('onDelete');
-    console.log(this.username);
-    console.log(this.commentText);
-    console.log('/comments/' + id);
     this.http.delete('api/comments/' + id).subscribe();
   }
 }

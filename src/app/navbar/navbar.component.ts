@@ -10,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 export class NavbarComponent implements OnInit {
   search: string;
   genres: any[];
-  url = 'api/movies/allGenres';
+  url = 'api/movies/genres';
 
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) { }
 
