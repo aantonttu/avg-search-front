@@ -49,9 +49,9 @@ export class HomePageComponent implements OnInit {
       } else if (this.sorting === 'relevance' && this.order === 'desc') {
         this.url += '/sorted?by=relevance&order=desc';
       } else if (this.sorting === 'rating' && this.order === 'asc') {
-        this.url += '/sorted?by=rating&order=desc';
-      } else if (this.sorting === 'rating' && this.order === 'desc') {
         this.url += '/sorted?by=rating&order=asc';
+      } else if (this.sorting === 'rating' && this.order === 'desc') {
+        this.url += '/sorted?by=rating&order=desc';
       } else if (this.sorting === 'year' && this.order === 'asc') {
         this.url += '/sorted?by=year&order=asc';
       } else if (this.sorting === 'year' && this.order === 'desc') {
