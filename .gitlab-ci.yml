@@ -1,0 +1,27 @@
+stages:
+  - build
+  - deploy
+
+build movies:
+  stage: build
+  image: node:12-alpine
+  cache:
+    paths:
+      - node_modules
+  artifacts:
+    paths:
+      - dist
+  tags:
+    - movies
+  script:
+    - npm install
+    - npm run build
+
+deploy movies:
+  stage: deploy
+  tags:
+    - movies
+  script:
+    - mkdir -p ~/front-deployment
+    - rm -rf ~/front-deployment/*
+    - cp -r dist/angular-avg/. ~/front-deployment
