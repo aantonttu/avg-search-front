@@ -17,6 +17,7 @@ build movies:
     - npm install
     - npm run build
 
+
 deploy movies:
   stage: deploy
   tags:
