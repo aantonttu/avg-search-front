@@ -13,6 +13,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 
 const appRoutes: Routes = [
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     HomePageComponent,
     FooterComponent,
     MovieDetailsComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
