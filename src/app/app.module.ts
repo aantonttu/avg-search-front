@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const appRoutes: Routes = [
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     HomePageComponent,
     FooterComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
