@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
-import {HttpClient} from '@angular/common/http';
-import {UserPassword} from '../user-password';
+import {UserService} from '../user.service';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-register',
@@ -11,12 +11,10 @@ import {UserPassword} from '../user-password';
 export class RegisterComponent implements OnInit {
 
   checkoutForm;
-  url = 'api/users/register';
-  userPassword: UserPassword;
 
   constructor(
     private formBuilder: FormBuilder,
-    private http: HttpClient,
+    private userService: UserService
   ) {
     this.checkoutForm = this.formBuilder.group({
       username: '',
@@ -30,22 +28,15 @@ export class RegisterComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   onSubmit(userPassword) {
-    console.log(userPassword);
-    this.http.post(this.url,
-      {
-        username: userPassword.username,
-        password: userPassword.password
-      }
-    ).subscribe(
-      () => {
-        console.log('Registration successful!');
-        this.checkoutForm.reset();
-      },
-      error => {
-        console.log('Registration failed!');
-        console.log(error);
-      }
-    );
+    this.userService.register(userPassword)
+      .pipe(first())
+      .subscribe(
+        () => {
+          console.log('Registration successful');
+        },
+        error => {
+          console.log('Registration failed!');
+          console.log(error);
+        });
   }
-
 }
