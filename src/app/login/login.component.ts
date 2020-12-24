@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserPassword} from '../user-password';
+import {FormBuilder} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  checkoutForm;
+  url = 'api/users/login';
+  userPassword: UserPassword;
 
-  ngOnInit(): void {
+  constructor(
+    private formBuilder: FormBuilder,
+    private http: HttpClient,
+  ) {
+    this.checkoutForm = this.formBuilder.group({
+      username: '',
+      password: ''
+    });
+  }
+
+  // tslint:disable-next-line:typedef
+  ngOnInit() {
+  }
+
+  // tslint:disable-next-line:typedef
+  onSubmit(userPassword) {
+    console.log(userPassword);
+    this.http.post(this.url,
+      {
+        username: userPassword.username,
+        password: userPassword.password
+      }
+    ).subscribe(
+      success => {
+        console.log('Login successful!');
+        console.log(success);
+        this.checkoutForm.reset();
+      },
+      error => {
+        console.log('Login failed!');
+        console.log(error);
+      }
+    );
   }
 
 }

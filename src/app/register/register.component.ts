@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
-import {ActivatedRoute} from '@angular/router';
 import {UserPassword} from '../user-password';
 
 @Component({
@@ -18,7 +17,6 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private activatedRoute: ActivatedRoute
   ) {
     this.checkoutForm = this.formBuilder.group({
       username: '',
