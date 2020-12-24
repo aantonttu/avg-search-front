@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
-import {UserService} from '../user.service';
 import {first} from 'rxjs/operators';
+import {AuthService} from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService
+    private authService: AuthService
   ) {
     this.checkoutForm = this.formBuilder.group({
       username: '',
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   // tslint:disable-next-line:typedef
   onSubmit(userPassword) {
     console.log(userPassword);
-    this.userService.login(userPassword)
+    this.authService.login(userPassword)
       .pipe(first())
       .subscribe(
         () => {
