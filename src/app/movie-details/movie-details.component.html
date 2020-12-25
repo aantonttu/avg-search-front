@@ -37,7 +37,7 @@
         </div>
       </div>
     </div>
-    <div class="w-100 mr-9  mt-5 mb-5 text-light">
+    <div class="w-100 mr-9  mt-5 mb-5 text-light" *ngIf="getRole()">
       <h1 style="margin-left: 5px">Comments</h1>
       <hr>
         <div class="w-50 mt-5 mb-5 comments-p" style="border-radius: 10px; background-color: #161616;" *ngFor="let comment of movie.comments;">
@@ -47,7 +47,7 @@
             </div>
             <div class="w-25 text-right">
               <div>
-                <a type="submit" class="mr-3 btn btn-danger btn-sm active" style="border-radius: 7px" (click)="onDelete(comment.id)"
+                <a type="submit" class="mr-3 btn btn-danger btn-sm active" style="border-radius: 7px" *ngIf="isAdmin()" (click)="onDelete(comment.id)"
                    href="movies/details?id={{movie.id}}">×</a>
               </div>
             </div>
@@ -60,8 +60,6 @@
         <h3 class=" comments-h3">Leave your comment!</h3>
         <form>
           <div class="form-group">
-            <input class="form-control" [(ngModel)]="username" name="username" id="username" placeholder="Enter username" >
-            <br>
             <textarea class="form-control" style="height: 20vh" [(ngModel)]="commentText" id="commentText" name="commentText">
             </textarea>
             <a type="submit" class="btn btn-dark mt-3"  (click)="onSubmit()" style="color: wheat"

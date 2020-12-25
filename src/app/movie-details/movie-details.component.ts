@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 import {Movie} from '../movie';
 import {Comment} from '../comment';
+import {AuthService} from '../auth.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -15,16 +16,26 @@ export class MovieDetailsComponent implements OnInit {
   url = 'api/movies';
   movie: Movie;
   comment: Comment;
-  username: string;
   commentText: string;
 
-  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) {
+  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private authService: AuthService) {
   }
 
   ngOnInit(): void {
     this.getMovie(this.activatedRoute);
   }
 
+  // tslint:disable-next-line:typedef
+  getRole() {
+    return this.authService.currentUserValue != null;
+  }
+
+  // tslint:disable-next-line:typedef
+  isAdmin() {
+    if (this.getRole()) {
+      return this.authService.currentUserValue.role === 'ADMIN';
+    }
+  }
 
   // tslint:disable-next-line:typedef
   getMovie(activatedRoute: ActivatedRoute) {
@@ -39,14 +50,11 @@ export class MovieDetailsComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   onSubmit() {
-    console.log('onSubmit');
-    console.log(this.username);
-    console.log(this.commentText);
-    console.log('/comments/' + this.movie.id);
+    const username = this.authService.currentUserValue.username;
     this.http.post('api/comments/' + this.movie.id,
       {
         commentText: this.commentText,
-        userName: this.username
+        userName: username
       }
     ).subscribe();
   }
