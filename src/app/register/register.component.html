@@ -1,0 +1,17 @@
+<div style="background-color: #252424; min-height: 80%">
+  <div class="container">
+    <div class="text-center text-light">
+      <div class="form mt-5 mb-5" style="background-color: #161616">
+        <h1 class="mb-5">Registration</h1>
+
+        <form class="text-dark" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+          <input id="username" type="text" formControlName="username" placeholder="Username" required autofocus/>
+          <input id="password" type="password" formControlName="password" placeholder="Password" required/>
+          <button type="submit">create</button>
+          <p class="message">Already registered? <a routerLink="/login">Sign In</a></p>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
