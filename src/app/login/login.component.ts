@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {AuthService} from '../auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +12,12 @@ import {AuthService} from '../auth.service';
 export class LoginComponent implements OnInit {
 
   checkoutForm;
+  log: string;
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     this.checkoutForm = this.formBuilder.group({
       username: '',
@@ -34,10 +37,13 @@ export class LoginComponent implements OnInit {
       .subscribe(
         () => {
           console.log('Login successful!');
+          this.log = 'success';
+          this.router.navigateByUrl('/');
         },
         error => {
           console.log('Login failed!');
           console.log(error);
+          this.log = 'error';
         });
   }
 

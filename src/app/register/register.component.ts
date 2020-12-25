@@ -11,6 +11,7 @@ import {first} from 'rxjs/operators';
 export class RegisterComponent implements OnInit {
 
   checkoutForm;
+  log: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,10 +34,12 @@ export class RegisterComponent implements OnInit {
       .subscribe(
         () => {
           console.log('Registration successful');
+          this.log = 'success';
         },
         error => {
           console.log('Registration failed!');
           console.log(error);
+          this.log = 'error';
         });
   }
 }

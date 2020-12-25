@@ -2,7 +2,9 @@
   <div class="container">
     <div class="text-center text-light">
       <div class="form mt-5 mb-5" style="background-color: #161616">
-        <h1 class="mb-5">Log in</h1>
+        <h1>Log in</h1>
+        <h3 *ngIf="this.log === 'success'" style="color: #41cb52">Login successful!</h3>
+        <h3 *ngIf="this.log === 'error'" style="color: red">Login failed!</h3>
 
         <form class="text-dark" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
           <input id="username" type="text" formControlName="username" placeholder="Username" required autofocus/>
