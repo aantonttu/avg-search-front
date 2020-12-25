@@ -51,12 +51,15 @@ export class MovieDetailsComponent implements OnInit {
   // tslint:disable-next-line:typedef
   onSubmit() {
     const username = this.authService.currentUserValue.username;
-    this.http.post('api/comments/' + this.movie.id,
-      {
-        commentText: this.commentText,
-        userName: username
-      }
-    ).subscribe();
+    if (this.commentText != null) {
+      this.http.post('api/comments/' + this.movie.id,
+        {
+          commentText: this.commentText,
+          userName: username
+        }
+      ).subscribe();
+    }
+
   }
 
   // tslint:disable-next-line:typedef variable-name
