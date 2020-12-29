@@ -1,0 +1,19 @@
+<div style="background-color: #252424; min-height: 80%">
+  <div class="container text-light">
+    <table class="table mt-5">
+      <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Username</th>
+        <th scope="col">Role</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="align-baseline" *ngFor="let user of usersList;">
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.username}}</td>
+        <td>{{user.role}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

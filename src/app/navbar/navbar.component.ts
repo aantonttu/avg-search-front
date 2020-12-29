@@ -39,4 +39,16 @@ export class NavbarComponent implements OnInit {
         this.genres = data;
       });
   }
+
+  // tslint:disable-next-line:typedef
+  isAdmin() {
+    if (this.getRole()) {
+      return this.authService.currentUserValue.role === 'ADMIN';
+    }
+  }
+
+  // tslint:disable-next-line:typedef
+  getRole() {
+    return this.authService.currentUserValue != null;
+  }
 }

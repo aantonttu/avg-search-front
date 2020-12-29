@@ -51,7 +51,7 @@
             </div>
             <div class="w-25 text-right">
               <div>
-                <a type="submit" class="mr-3 btn btn-danger btn-sm active" style="border-radius: 7px" *ngIf="isAdmin()" (click)="onDelete(comment.id)"
+                <a type="submit" class="mr-3 btn btn-danger btn-sm active" style="border-radius: 7px" *ngIf="isAdmin()" (click)="onDeleteComment(comment.id)"
                    href="movies/details?id={{movie.id}}">×</a>
               </div>
             </div>

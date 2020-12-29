@@ -16,6 +16,7 @@ import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 import {JwtInterceptor} from './jwt.interceptor';
 import {ErrorInterceptor} from './error.interceptor';
+import { UserManagementComponent } from './user-management/user-management.component';
 
 
 const appRoutes: Routes = [
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     FooterComponent,
     MovieDetailsComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    UserManagementComponent
   ],
   imports: [
     BrowserModule,

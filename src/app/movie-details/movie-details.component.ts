@@ -73,7 +73,7 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef variable-name
-  onDelete(id) {
+  onDeleteComment(id) {
     this.http.delete('api/comments/' + id).subscribe();
   }
 }
