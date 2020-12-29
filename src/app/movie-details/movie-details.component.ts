@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Movie} from '../movie';
 import {Comment} from '../comment';
 import {AuthService} from '../auth.service';
@@ -18,7 +18,10 @@ export class MovieDetailsComponent implements OnInit {
   comment: Comment;
   commentText: string;
 
-  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private authService: AuthService) {
+  constructor(private http: HttpClient,
+              private activatedRoute: ActivatedRoute,
+              private authService: AuthService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -50,7 +53,9 @@ export class MovieDetailsComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   onDeleteMovie(id) {
-    this.http.delete('api/movies/' + id).subscribe();
+    this.http.delete('api/movies/' + id).subscribe(
+      () => this.router.navigateByUrl('/')
+    );
   }
 
   // tslint:disable-next-line:typedef
