@@ -49,6 +49,11 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
+  onDeleteMovie(id) {
+    this.http.delete('api/movies/' + id).subscribe();
+  }
+
+  // tslint:disable-next-line:typedef
   onSubmit() {
     const username = this.authService.currentUserValue.username;
     if (this.commentText != null) {
