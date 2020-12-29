@@ -28,4 +28,8 @@ export class UserManagementComponent implements OnInit {
         this.usersList = data;
       });
   }
+  // tslint:disable-next-line:typedef
+  onDeleteUser(id) {
+    this.http.delete('api/users/' + id).subscribe();
+  }
 }
