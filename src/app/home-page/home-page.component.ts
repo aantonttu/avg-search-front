@@ -38,27 +38,27 @@ export class HomePageComponent implements OnInit {
     this.moviesList = [];
     this.url = 'api/movies';
     if (this.genre) {
-      this.url += '/sorted?genre=' + this.genre;
+      this.url += '?genre=' + this.genre;
     } else if (this.sorting && this.order) {
       if (this.sorting === 'name' && this.order === 'asc') {
-        this.url += '/sorted?by=name&order=asc';
+        this.url += '?by=name&order=asc';
       } else if (this.sorting === 'name' && this.order === 'desc') {
-        this.url += '/sorted?by=name&order=desc';
+        this.url += '?by=name&order=desc';
       } else if (this.sorting === 'relevance' && this.order === 'asc') {
-        this.url += '/sorted?by=relevance&order=asc';
+        this.url += '?by=relevance&order=asc';
       } else if (this.sorting === 'relevance' && this.order === 'desc') {
-        this.url += '/sorted?by=relevance&order=desc';
+        this.url += '?by=relevance&order=desc';
       } else if (this.sorting === 'rating' && this.order === 'asc') {
-        this.url += '/sorted?by=rating&order=asc';
+        this.url += '?by=rating&order=asc';
       } else if (this.sorting === 'rating' && this.order === 'desc') {
-        this.url += '/sorted?by=rating&order=desc';
+        this.url += '?by=rating&order=desc';
       } else if (this.sorting === 'year' && this.order === 'asc') {
-        this.url += '/sorted?by=year&order=asc';
+        this.url += '?by=year&order=asc';
       } else if (this.sorting === 'year' && this.order === 'desc') {
-        this.url += '/sorted?by=year&order=desc';
+        this.url += '?by=year&order=desc';
       }
     } else if (this.find) {
-      this.url += '/find?name=' + this.find;
+      this.url += '?name=' + this.find;
     }
     this.http.get<any>(this.url)
       .subscribe(data => {
