@@ -62,14 +62,13 @@ export class MovieDetailsComponent implements OnInit {
   onSubmit() {
     const username = this.authService.currentUserValue.username;
     if (this.commentText != null) {
-      this.http.post('api/comments/' + this.movie.id,
+      this.http.post('api/movies/' + this.movie.id + '/comments',
         {
           commentText: this.commentText,
           userName: username
         }
       ).subscribe();
     }
-
   }
 
   // tslint:disable-next-line:typedef variable-name
