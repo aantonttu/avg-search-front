@@ -1,5 +1,5 @@
 <div style="background-color: #252424; min-height: 80%" *ngIf="movie">
-  <div class="container" >
+  <div class="container">
     <div class="w-100 row mt-5 mb-5 text-light" style="background-color: #161616">
       <div class="w-25 text-center">
         <div class="mt-5 mb-5">
@@ -44,35 +44,38 @@
     <div class="w-100 mr-9  mt-5 mb-5 text-light" *ngIf="getRole()">
       <h1 style="margin-left: 5px">Comments</h1>
       <hr>
-        <div class="w-50 mt-5 mb-5 comments-p" style="border-radius: 10px; background-color: #161616;" *ngFor="let comment of movie.comments;">
-          <div class="row w-100 ml-3 text-muted">
-            <div class="w-75 mt-3 text-left">
-              <h5><b>{{comment.userName + ":"}}</b></h5>
-            </div>
-            <div class="w-25 text-right">
-              <div>
-                <a type="submit" class="mr-3 btn btn-danger btn-sm active" style="border-radius: 7px" *ngIf="isAdmin()" (click)="onDeleteComment(comment.id)"
-                   href="movies/details?id={{movie.id}}">×</a>
-              </div>
-            </div>
+      <div class="w-50 mt-5 mb-5 comments-p" style="border-radius: 10px; background-color: #161616;"
+           *ngFor="let comment of movie.comments;">
+        <div class="row w-100 ml-3 text-muted">
+          <div class="w-75 mt-3 text-left">
+            <h5><b>{{comment.userName + ":"}}</b></h5>
           </div>
-          <div class="ml-5">
-            <p>{{comment.commentText}}</p>
+          <div class="w-25 text-right">
+            <div>
+              <a type="submit" class="mr-3 btn btn-danger btn-sm active" style="border-radius: 7px"
+                 *ngIf="isAdmin() || isMine(comment.userName)" (click)="onDeleteComment(comment.id)"
+                 href="movies/details?id={{movie.id}}">×</a>
+            </div>
           </div>
         </div>
+        <div class="ml-5">
+          <p>{{comment.commentText}}</p>
+        </div>
+      </div>
       <div class=" w-50 mt-5 mb-2 comments-p card-body" style="border-radius: 10px; background-color: #161616;">
         <h3 class=" comments-h3">Leave your comment!</h3>
         <form>
           <div class="form-group">
-            <textarea class="form-control" style="height: 20vh" [(ngModel)]="commentText" id="commentText" name="commentText">
+            <textarea class="form-control" style="height: 20vh" [(ngModel)]="commentText" id="commentText"
+                      name="commentText">
             </textarea>
-            <a type="submit" class="btn btn-dark mt-3"  (click)="onSubmit()" style="color: wheat"
+            <a type="submit" class="btn btn-dark mt-3" (click)="onSubmit()" style="color: wheat"
                href="movies/details?id={{movie.id}}">Post</a>
           </div>
         </form>
       </div>
-      </div>
     </div>
+  </div>
 </div>
 
 

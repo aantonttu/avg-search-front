@@ -41,6 +41,13 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
+  isMine(name: string) {
+    if (this.getRole()) {
+      return this.authService.currentUserValue.username === name;
+    }
+  }
+
+  // tslint:disable-next-line:typedef
   getMovie(activatedRoute: ActivatedRoute) {
     activatedRoute.queryParams.subscribe(data => {
       this.url += '/' + data.id;
