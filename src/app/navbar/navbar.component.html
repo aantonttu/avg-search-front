@@ -23,7 +23,6 @@
 
   <button type="button" class="nav-sign btn btn-outline-secondary" *ngIf="isAdmin()" routerLink="/users">User manager</button>
   <button type="button" class="nav-sign btn btn-outline-secondary" *ngIf="checkLogin()" routerLink="/login">Log in</button>
-  <button type="button" class="nav-sign btn btn-outline-secondary" *ngIf="checkLogin()" routerLink="/login">Test Log in</button>
   <button type="button" class="nav-sign btn btn-outline-secondary" *ngIf="checkLogin()" routerLink="/register">Register</button>
 
   <button type="button" class="nav-sign btn btn-outline-secondary" *ngIf="!checkLogin()" (click)="logout()" routerLink="/">Log out</button>
